@@ -38,10 +38,6 @@ h1 {
   height: var(--head-height);
 }
 
-.footer {
-  transform: scaleY(-1);
-}
-
 .form-container {
   width: var(--content-width);
   margin-inline: auto;
@@ -148,13 +144,19 @@ h1 {
   color: white;
 }
 
+.footer {
+  /*  flip background image...also flips content  */
+  transform: scaleY(-1);
+}
+
 .attribution {
+  /*  flip content back to normal  */
+  transform: scaleY(-1);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: scaleY(-1);
   white-space: nowrap;
   padding-inline: 1rem;
 }
