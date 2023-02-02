@@ -17,11 +17,11 @@ const locationNode = document.getElementById("location");
 const utcOffsetNode = document.getElementById("utc-offset");
 const ispNode = document.getElementById("isp");
 
-const searchButton = document.getElementById("search-button");
+const searchForm = document.getElementById("search-form");
 
 // Add listeners
 window.addEventListener("load", (e) => handleLocationSearch(e));
-searchButton.addEventListener("click", throttle(handleLocationSearch));
+searchForm.addEventListener("submit", throttle(handleLocationSearch));
 
 async function handleLocationSearch(e) {
   e.preventDefault();
