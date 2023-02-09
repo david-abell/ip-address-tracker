@@ -1,7 +1,7 @@
 const API_BASE_URL = "http://localhost:4000/";
 
 // Setup Map
-const map = L.map("map");
+const map = L.map("map", { zoomControl: false });
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -63,7 +63,7 @@ async function handleLocationSearch(e) {
       throw new Error("no location found");
     }
 
-    setMapLocation(lat, lng);
+    setMapLocation(lat, lng, city);
 
     setNodeText(locationNode, city);
     setNodeText(ipAddressNode, ip);
@@ -80,9 +80,17 @@ function setNodeText(node, text) {
   node.innerText = text;
 }
 
-function setMapLocation(lat, lng) {
+function setMapLocation(lat, lng, city) {
   map.setView([lat, lng], 13);
-  marker = L.marker([lat, lng]).addTo(map);
+  marker = L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup(`<b>${city}</b><br>Lat. ${lat} Lon. ${lng}.`);
+  marker.on("mouseover", function (ev) {
+    marker.openPopup();
+  });
+  marker.on("mouseout", function (ev) {
+    marker.closePopup();
+  });
 }
 
 function throttle(func, limit = 800) {
