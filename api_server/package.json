@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "preinstall": "npm I -g pm2"
+    "preinstall": "npm install pm2@latest -g",
+    "start": "pm2 start server.js"
   },
-  "start": "pm2 start server.js -i 1",
   "author": "David Abell",
   "license": "ISC",
   "dependencies": {
