@@ -15,18 +15,16 @@ const app = express();
 
 // Configuration
 const PORT = 4000;
+app.use(cors());
 
-app.get("/hello", (req, resp) => {
-  console.log(req);
+app.get("/test", (req, resp) => {
   return resp.json(test);
 });
-
-app.use(cors());
 
 setupRateLimit(app, ROUTES);
 setupLogging(app);
 setupProxies(app, ROUTES);
 
 app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`);
+  console.log(`App listening at http://localhost:${PORT}`);
 });
