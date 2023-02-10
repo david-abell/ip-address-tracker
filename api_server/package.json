@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "preinstall": "npm install pm2@latest -g",
+    "preinstall": "sudo chown -R $USER /usr/local/lib/node_modules && npm install pm2@latest -g",
     "start": "pm2 start server.js"
   },
   "author": "David Abell",
