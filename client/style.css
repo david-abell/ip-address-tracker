@@ -137,6 +137,12 @@ h1 {
   font-weight: 500;
   font-size: clamp(1.125rem, 0.7729rem + 1.5023vw, 2.125rem);
   margin: 0;
+
+  /* limit content to two lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .attribution,
