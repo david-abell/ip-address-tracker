@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:4000/";
+const API_BASE_URL = "https://ip-address-geo-ipify-proxy.onrender.com/";
 
 // Setup Map
 const map = L.map("map", { zoomControl: false });
