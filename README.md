@@ -4,6 +4,8 @@ This is my solution to the [IP address tracker challenge on Frontend Mentor](htt
 
 Built with HTML, CSS, Leaflet.js, and Express.js server for proxy and rate limit of https://geo.ipify.org API
 
+If the map does not load it is because API is rate limited by the Express Proxy to 5 requests per 15 minutes so that limited API credits aren't used up too quickly.
+
 ## Table of contents
 
 - [Overview](#overview)
