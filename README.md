@@ -2,6 +2,8 @@
 
 This is my solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+Built with HTML, CSS, Leaflet.js, and Express.js server for proxy and rate limit of https://geo.ipify.org API
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -33,8 +35,9 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+<!-- - Solution URL: [Add solution URL here](https://your-solution-url.com) -->
+
+- Live Site URL: [https://david-abell.github.io/ip-address-tracker/](https://david-abell.github.io/ip-address-tracker/)
 
 ## My process
 
@@ -44,6 +47,8 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - [Express](https://expressjs.com/) - Node.js Server framework api proxy
+- Leaflet maps
+- Geo-ipify location API
 
 ### What I learned
 
