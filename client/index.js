@@ -33,16 +33,13 @@ const loadLat = onLoadingState.location.lat;
 const loadLng = onLoadingState.location.lng;
 
 // Setup Map
-const map = L.map("map", { zoomControl: false });
+const map = L.map("map").setView([loadLat, loadLng], MAP_ZOOM);
 
-L.tileLayer(
-  "https://tile.openstreetmap.org/{MAP_ZOOM}/{loadLat}/{loadLng}.png",
-  {
-    maxZoom: 19,
-    attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  }
-).addTo(map);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
 
 let marker = L.marker([loadLat, loadLng]).addTo(map);
 
