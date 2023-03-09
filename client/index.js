@@ -31,9 +31,10 @@ const onLoadingState = {
 const MAP_ZOOM = 13;
 const loadLat = onLoadingState.location.lat;
 const loadLng = onLoadingState.location.lng;
+const loadCity = onLoadingState.location.city;
 
 // Setup Map
-const map = L.map("map").setView([loadLat, loadLng], MAP_ZOOM);
+const map = L.map("map");
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -42,6 +43,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 let marker = L.marker([loadLat, loadLng]).addTo(map);
+
+setMapLocation(loadLat, loadLng, loadCity);
 
 // Setup text nodes for location results
 const ipAddressNode = document.getElementById("ip-address");
