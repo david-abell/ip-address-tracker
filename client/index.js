@@ -1,15 +1,50 @@
 const API_BASE_URL = "https://ip-address-geo-ipify-proxy.onrender.com/";
+const onLoadingState = {
+  ip: "8.8.8.8",
+  location: {
+    country: "US",
+    region: "California",
+    city: "Mountain View",
+    lat: 37.38605,
+    lng: -122.08385,
+    postalCode: "94035",
+    timezone: "-08:00",
+    geonameId: 5375480,
+  },
+  domains: [
+    "0c2071772e3140b1bd81a6fc21f582b5.vip1.huaweicloudwaf.com",
+    "finnheat.se",
+    "golaro205.com",
+    "infralabs.se",
+    "load-balancer.anytype.io",
+  ],
+  as: {
+    asn: 15169,
+    name: "GOOGLE",
+    route: "8.8.8.0/24",
+    domain: "https://about.google/intl/en/",
+    type: "Content",
+  },
+  isp: "Google LLC",
+};
+
+const MAP_ZOOM = 13;
+const loadLat = onLoadingState.location.lat;
+const loadLng = onLoadingState.location.lng;
 
 // Setup Map
 const map = L.map("map", { zoomControl: false });
 
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution:
-    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
+L.tileLayer(
+  "https://tile.openstreetmap.org/{MAP_ZOOM}/{loadLat}/{loadLng}.png",
+  {
+    maxZoom: 19,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }
+).addTo(map);
 
-let marker = L.marker([51.5, -0.09]).addTo(map);
+let marker = L.marker([loadLat, loadLng]).addTo(map);
 
 // Setup text nodes for location results
 const ipAddressNode = document.getElementById("ip-address");
@@ -81,7 +116,7 @@ function setNodeText(node, text) {
 }
 
 function setMapLocation(lat, lng, city) {
-  map.setView([lat, lng], 13);
+  map.setView([lat, lng], MAP_ZOOM);
   marker = L.marker([lat, lng])
     .addTo(map)
     .bindPopup(`<b>${city}</b><br>Lat. ${lat} Lon. ${lng}.`);
